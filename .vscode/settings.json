@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/redowan/anaconda3/envs/tf-gpu/bin/python",
+    "python.pythonPath": "venv/bin/python",
     "python.linting.pylintEnabled": true
 }

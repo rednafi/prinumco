@@ -1,8 +1,9 @@
-from PIL import Image
+from PIL import Image, ImageFilter
 from PIL import ImageDraw
 from PIL import ImageFont
 import os 
 from glob import glob
+import random
 from tqdm import tqdm
 import numpy as np
 import Augmentor
@@ -86,11 +87,47 @@ def test_datagen(fonts):
             for kdx, (digit_bn, digit_en) in enumerate(zip(digits_bns,digits_ens)): 
                 try:
                     img = digit_generator(digit = digit_bn, font_name = font_name, font_size=font_size)
-                    img.save('test/{}/{}_{}_{}.jpg'.format(digit_en,idx,jdx,kdx))
+                    img.save('test/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,kdx, font_name.split('.ttf')[0].split('/')[-1]))
                 except:
                     pass
 
 
+# Bluring 
+class Blur(Operation):
+    # blur_type -> gaussian | box_blur | random
+    # radius range -> (lower_range, upper_range)
+
+    # if fixed radius is set a Float value, range won't be used 
+    def __init__(self, probability, blur_type='gaussian', radius=(0, 1), fixed_radius=None):
+        Operation.__init__(self, probability)
+        self.blur_type = blur_type
+        self.radius = radius
+        self.fixed_radius = fixed_radius
+
+    def perform_operation(self, images):
+        def do(image):
+            # Choose blur type 
+            if self.blur_type != 'random':
+                blur_filter = ImageFilter.GaussianBlur if self.blur_type == 'gaussian' else ImageFilter.BoxBlur
+            else:
+                coin_toss = random.choice([ 'gaussian', 'box_blur' ])
+                blur_filter = ImageFilter.GaussianBlur if coin_toss == 'gaussian' else ImageFilter.BoxBlur
+            # Choose radius 
+            if self.fixed_radius == None:
+                assert len(self.radius) == 2
+                radius = np.random.uniform(low=self.radius[0], high=self.radius[1])
+            else:
+                radius = self.fixed_radius
+            return image.filter(blur_filter(radius=radius))
+
+        augmented_images = []
+        
+        for image in images:
+            augmented_images.append(do(image))
+
+        return augmented_images
+
+blur = Blur(probability=1, blur_type='random', radius=(0, 100), fixed_radius=3)
 
 # image augmentation
 class GaussianNoise(Operation):
@@ -117,35 +154,40 @@ class GaussianNoise(Operation):
         
         return augmented_images
 
- 
-def augmentation(folder, noise, sample=100):
+# Add noise operation
+noise = GaussianNoise(probability=0.3, mean = .09, std = 5)
+
+
+def augmentation(folder, sample=100):
     p = Augmentor.Pipeline(folder)
-    p.add_operation(noise)
-    p.rotate90(probability=0.1)
-    p.rotate270(probability=0.1)
-    #p.crop_random(probability=1, percentage_area=0.9)
-    p.zoom(probability=0.5, min_factor=1.01, max_factor=1.03)
-    #p.crop_centre(probability = 0.5, percentage_area=0.5, randomise_percentage_area=True)
+    p.add_operation(blur)
 
-    p.flip_left_right(probability = 0.5)
-    p.flip_random(probability = 0.5)
-    p.flip_top_bottom(probability = 0.4)
+    # p.add_operation(noise)
+    # p.rotate90(probability=0.1)
+    # p.rotate270(probability=0.1)
+    # #p.crop_random(probability=1, percentage_area=0.9)
+    # p.zoom(probability=0.5, min_factor=1.01, max_factor=1.03)
+    # #p.crop_centre(probability = 0.5, percentage_area=0.5, randomise_percentage_area=True)
 
-    p.skew_tilt(probability = 0.5, magnitude = 0.5)
-    p.skew_left_right(probability = 0.2, magnitude = 0.5)
-    p.skew_top_bottom(probability = 0.6, magnitude = 0.5)
-    p.skew_corner(probability = 0.1, magnitude = 1)
-    p.skew(probability = 0.33, magnitude = 0.4)
+    # p.flip_left_right(probability = 0.5)
+    # p.flip_random(probability = 0.5)
+    # p.flip_top_bottom(probability = 0.4)
 
-    p.random_erasing(probability=0.3, rectangle_area=0.33)
-    p.gaussian_distortion(probability = 0.3, grid_width = 5, grid_height = 5, magnitude = 5, corner = 'bell', method = 'in')
-    p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
-    # p.random_color(probability = 0.4, min_factor = 0.3, max_factor= 0.7 )
-    p.random_contrast(probability= 0.4, min_factor = 0.3, max_factor = 0.7 )
-    p.random_distortion(probability = 0.3, grid_width = 5, grid_height = 5, magnitude = 5)
+    # p.skew_tilt(probability = 0.5, magnitude = 0.5)
+    # p.skew_left_right(probability = 0.2, magnitude = 0.5)
+    # p.skew_top_bottom(probability = 0.6, magnitude = 0.5)
+    # p.skew_corner(probability = 0.1, magnitude = 1)
+    # p.skew(probability = 0.33, magnitude = 0.4)
 
-    p.invert(probability = 0.5)
-    p.histogram_equalisation(probability = 0.5)
+    # p.random_erasing(probability=0.3, rectangle_area=0.33)
+    # p.gaussian_distortion(probability = 0.3, grid_width = 5, grid_height = 5, magnitude = 5, corner = 'bell', method = 'in')
+    # p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
+    # # p.random_color(probability = 0.4, min_factor = 0.3, max_factor= 0.7 )
+    # p.random_contrast(probability= 0.4, min_factor = 0.3, max_factor = 0.7 )
+    # p.random_distortion(probability = 0.3, grid_width = 5, grid_height = 5, magnitude = 5)
+
+    # p.invert(probability = 0.5)
+    # p.histogram_equalisation(probability = 0.5)
     
     p.sample(sample, multi_threaded=True)
 
@@ -169,20 +211,25 @@ def remove_output():
     
 # __main__
 def main_func():
-    directory_generator()
-    fonts = check_fonts()
-    digit_generator()
-    color_list = [(255,255,255), (255, 255, 204)]
-    color_names = ['white', 'yellow']
-    train_datagen(fonts, color_list, color_names)
-    test_datagen(fonts)
-    augmentation('train/',noise = GaussianNoise(probability=0.3, mean = .09, std = 5), sample=1000)
+    # directory_generator()
+    # fonts = check_fonts()
+    # digit_generator()
+    # color_list = [(255,255,255), (255, 255, 204)]
+    # color_names = ['white', 'yellow']
+    # train_datagen(fonts, color_list, color_names)
+    # test_datagen(fonts)
+    augmentation('train/', sample=100)
     # src = 'train/output'
     # dst = 'train/'
     # copytree(src, dst)
     # remove_output()
 
 
+remove_previous = False
+
+if remove_previous and ( os.path.exists('train') or os.path.exists('test') ) :
+    shutil.rmtree('./train/')
+    shutil.rmtree('./test/')
 
 main_func()
 
