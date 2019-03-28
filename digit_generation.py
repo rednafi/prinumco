@@ -129,6 +129,44 @@ class Blur(Operation):
 
 blur = Blur(probability=1, blur_type='random', radius=(0, 100), fixed_radius=3)
 
+# Filter op
+class Filters(Operation):
+    # Filter types ->  mode, median, max, min, random
+    def __init__(self, probability, filter_type='mean', sizes = None, size=3):
+        Operation.__init__(self, probability)
+        self.filter_type = filter_type
+        self.size = size
+        self.sizes = sizes
+        self.filters = {
+            'median' : ImageFilter.MedianFilter,
+            'min' : ImageFilter.MinFilter,
+            'max' : ImageFilter.MaxFilter,
+            'mode' : ImageFilter.ModeFilter
+        }
+    
+    def perform_operation(self, images):
+        def do(image):
+            if self.sizes == None:
+                size = self.size
+            else:
+                size = random.choice(self.sizes)
+            
+            if self.filter_type == 'random':
+                filter_type = random.choice(['median', 'max', 'min', 'mode'])
+            else:
+                filter_type = self.filter_type
+
+            return image.filter(self.filters[filter_type](size=size))
+
+        augmented_images = []
+
+        for image in images:
+            augmented_images.append(do(image))
+
+        return augmented_images
+    
+_filter = Filters(probability=1.0, filter_type='random', size=5)
+
 # image augmentation
 class GaussianNoise(Operation):
     """
@@ -160,7 +198,7 @@ noise = GaussianNoise(probability=0.3, mean = .09, std = 5)
 
 def augmentation(folder, sample=100):
     p = Augmentor.Pipeline(folder)
-    p.add_operation(blur)
+    p.add_operation(_filter)
 
     # p.add_operation(noise)
     # p.rotate90(probability=0.1)
