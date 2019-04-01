@@ -97,7 +97,7 @@ class GaussianNoise(Operation):
             w, h = image.size
             c = len(image.getbands())
             noise = np.random.normal(self.mean, self.std, (h, w, c))
-            return Image.fromarray(np.uint8(np.asarray(image) + 0.005*noise ))
+            return Image.fromarray(np.uint8(np.asarray(image) + 0.003*noise ))
 
         augmented_images = []
 
@@ -121,21 +121,21 @@ def augmentation(folder, sample=100):
     p.rotate90(probability=0.05)
     p.rotate270(probability=0.05)
     p.crop_by_size(probability=0.5, width=250, height=250)
-    p.crop_random(probability=0.1, percentage_area = 0.9)
+    p.crop_random(probability=0.3, percentage_area = 0.9)
     p.zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
 
     p.flip_left_right(probability = 0.1)
     p.flip_top_bottom(probability = 0.1)
 
-    p.skew_tilt(probability = 0.1, magnitude = 1)
-    p.skew_left_right(probability = 0.1, magnitude = 1)
-    p.skew_top_bottom(probability = 0.2, magnitude = 1)
-    p.skew_corner(probability = 0.1, magnitude = 1)
-    p.skew(probability = 0.1, magnitude = 1)
+    p.skew_tilt(probability = 0.03, magnitude = 1)
+    p.skew_left_right(probability = 0.03, magnitude = 1)
+    p.skew_top_bottom(probability = 0.02, magnitude = 1)
+    p.skew_corner(probability = 0.03, magnitude = 1)
+    p.skew(probability = 0.03, magnitude = 1)
 
     p.random_erasing(probability=0.01, rectangle_area=0.11)
     p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
-    p.random_distortion(probability = 0.1, grid_width = 1, grid_height = 1, magnitude = 1)
+    p.random_distortion(probability = 0.01, grid_width = 1, grid_height = 1, magnitude = 1)
 
     p.invert(probability = 0.2)
     p.resize(probability = 1, width = 256, height = 256)
