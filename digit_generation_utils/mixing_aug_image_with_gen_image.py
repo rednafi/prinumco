@@ -1,6 +1,6 @@
 import os
 import shutil
-import tqdm
+from tqdm import tqdm
 
 #moving the augmented images to the corresponding folders 
 def copytree(source_path, destination_path, symlinks=False, ignore=None):

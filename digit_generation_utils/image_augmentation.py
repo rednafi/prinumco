@@ -107,7 +107,7 @@ class GaussianNoise(Operation):
         return augmented_images
 
 # Add noise operation
-noise = GaussianNoise(probability=0.5, mean = 0.9, std = 1.0 )
+noise = GaussianNoise(probability=0.5, mean = 0.05, std = 1.0 )
 _filter = Filters(probability=1.0, filter_type='random', size=5)
 blur = Blur(probability=0.7, blur_type='random', radius=(0, 100), fixed_radius=3)
 
@@ -120,24 +120,24 @@ def augmentation(folder, sample=100):
     #p.add_operation(noise)
     p.rotate90(probability=0.1)
     p.rotate270(probability=0.1)
-    p.crop_random(probability=1, percentage_area=0.2)
-    p.zoom(probability=0.5, min_factor=1.01, max_factor=1.03)
-    p.crop_centre(probability = 0.5, percentage_area=0.1, randomise_percentage_area=False)
+    p.crop_by_size(probability=1, width=250, height=250)
+    p.crop_random(probability=0.1, percentage_area = 0.9)
+    p.zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
 
     p.flip_left_right(probability = 0.5)
     p.flip_top_bottom(probability = 0.4)
 
-    p.skew_tilt(probability = 0.5, magnitude = 0.1)
-    p.skew_left_right(probability = 0.2, magnitude = 0.1)
-    p.skew_top_bottom(probability = 0.6, magnitude = 0.1)
-    p.skew_corner(probability = 0.1, magnitude = 0.1)
-    p.skew(probability = 0.33, magnitude = 0.1)
+    p.skew_tilt(probability = 0.1, magnitude = 1)
+    p.skew_left_right(probability = 0.1, magnitude = 1)
+    p.skew_top_bottom(probability = 0.2, magnitude = 1)
+    p.skew_corner(probability = 0.1, magnitude = 1)
+    p.skew(probability = 0.1, magnitude = 1)
 
     #p.random_erasing(probability=0.3, rectangle_area=0.1)
     p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
-    p.random_distortion(probability = 0.3, grid_width = 0.5, grid_height = 0.5, magnitude = 0.1)
+    p.random_distortion(probability = 0.1, grid_width = 1, grid_height = 1, magnitude = 1)
 
-    p.invert(probability = 0.5)
+    p.invert(probability = 0.2)
     p.resize(probability = 1, width = 256, height = 256)
     p.sample(sample, multi_threaded=True)
 
