@@ -21,15 +21,13 @@ from digit_generation_utils.mixing_aug_image_with_gen_image import copytree, rem
 def main_func():
     directory_generator()
     fonts = check_fonts()
-    color_list = [(255,255,255), (255, 255, 204)]
-    color_names = ['white', 'yellow']
-    train_datagen(fonts, color_list, color_names, image_count=100)
-    test_datagen(fonts, image_count=1100)
+    train_datagen(fonts, image_count=1000)
+    test_datagen(fonts, image_count=300)
     augmentation('train/', sample=1000)
-    #src = 'train/output'
+    # src = 'train/output'
     # dst = 'train/'
     # copytree(src, dst)
-    # remove_output()
+    # remove_output('train/output')
 
 
 main_func()

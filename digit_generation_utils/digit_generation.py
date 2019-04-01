@@ -18,7 +18,7 @@ def digit_generator(digit = '1', font_name = '/usr/share/fonts/truetype/custom/H
 
 
 # train data generation
-def train_datagen(fonts, color_list, color_names, image_count = 100):
+def train_datagen(fonts, image_count = 100):
     """
     color_list is a list of tuples like (255,255,255) and color_names represents the corresponding names.
     ------------------------------------------------------------------------------------------------------
@@ -27,6 +27,9 @@ def train_datagen(fonts, color_list, color_names, image_count = 100):
     color_names = color_names = ['white', 'yellow', 'orange', 'green', 'blue', 'red']
     ------------------------------------------------------------------------------------------------------
     """
+
+    color_list = [(255,255,255), (255, 255, 204)]
+    color_names = color_names = ['white', 'yellow']
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
     
