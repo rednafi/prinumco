@@ -4,6 +4,7 @@ from tqdm import tqdm
 
 #moving the augmented images to the corresponding folders 
 def copytree(source_path, destination_path, symlinks=False, ignore=None):
+    
     if not os.path.exists(destination_path):
         os.makedirs(destination_path)
     for item in tqdm(os.listdir(source_path)):

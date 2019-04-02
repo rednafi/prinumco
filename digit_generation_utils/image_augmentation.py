@@ -107,7 +107,7 @@ class GaussianNoise(Operation):
         return augmented_images
 
 # Add noise operation
-noise = GaussianNoise(probability=0.9, mean = 0, std = 50.0 )
+noise = GaussianNoise(probability=0.9, mean = 0, std = 20.0 )
 _filter = Filters(probability=0.8, filter_type='random', size=5)
 blur = Blur(probability=0.7, blur_type='random', radius=(0, 100), fixed_radius=3)
 
@@ -119,9 +119,9 @@ def augmentation(folder, sample=100):
     p.add_operation(noise)
 
     #p.black_and_white(probability = 1, threshold = 128)
-    p.rotate90(probability=0.001)
-    p.rotate270(probability=0.001)
     p.rotate(probability = 0.3, max_left_rotation = 25, max_right_rotation = 25)
+    p.rotate90(probability = 0.005)
+    p.rotate270(probability = 0.005)
     p.crop_random(probability=0.3, percentage_area = 0.9)
     p.zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
 
@@ -134,9 +134,9 @@ def augmentation(folder, sample=100):
 
     p.random_erasing(probability=0.01, rectangle_area=0.11)
     p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
-    p.random_distortion(probability = 0.01, grid_width = 1, grid_height = 1, magnitude = 1)
+    p.random_distortion(probability = 0.01, grid_width = 2, grid_height = 2, magnitude = 1)
 
-    p.invert(probability = 0.2)
+    p.invert(probability = 0.09)
     p.resize(probability = 1, width = 256, height = 256)
     p.sample(sample, multi_threaded=True)
 
