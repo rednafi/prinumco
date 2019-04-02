@@ -22,13 +22,18 @@ from digit_generation_utils.preprocess import train_test_image_binarize
 def main_func():
     directory_generator()
     fonts = check_fonts()
-    train_datagen(fonts, image_count=100)
-    test_datagen(fonts, image_count=30)
-    augmentation('train/', sample=100)
-    src = 'train/output'
-    dst = 'train/'
-    copytree(src, dst)
+    train_datagen(fonts, image_count=11)
+    test_datagen(fonts, image_count=15)
+    augmentation('train/', sample=200)
+    augmentation('test/', sample= 15)
+    train_src = 'train/output'
+    train_dst = 'train/'
+    test_src = 'test/output'
+    test_dst = 'test/'
+    copytree(train_src, train_dst)
+    copytree(test_src, test_dst)
     remove_output('train/output')
+    remove_output('test/output')
     train_test_image_binarize(train_folder= 'train/', test_folder= 'test/')
 
 
