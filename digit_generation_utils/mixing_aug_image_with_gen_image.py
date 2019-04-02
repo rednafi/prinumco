@@ -5,6 +5,7 @@ from tqdm import tqdm
 #moving the augmented images to the corresponding folders 
 def copytree(source_path, destination_path, symlinks=False, ignore=None):
     
+    print('Moving augmented images to the corresponding folders...')
     if not os.path.exists(destination_path):
         os.makedirs(destination_path)
     for item in tqdm(os.listdir(source_path)):
@@ -18,4 +19,5 @@ def copytree(source_path, destination_path, symlinks=False, ignore=None):
 
 #removing the original augmented folder
 def remove_output(output_folder_path):
+    print('Removing redundant folders...')
     shutil.rmtree(output_folder_path)

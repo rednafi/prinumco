@@ -20,7 +20,7 @@ train_folder = base_dir + 'train/'
 test_folder = base_dir + 'test/'
 
 """ keras model """
-input_shape = (75,75,3)
+input_shape = (75,75,1)
 num_classes = 10
 
 # defining the model

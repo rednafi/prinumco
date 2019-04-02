@@ -112,7 +112,9 @@ _filter = Filters(probability=0.8, filter_type='random', size=5)
 blur = Blur(probability=0.7, blur_type='random', radius=(0, 100), fixed_radius=3)
 
 
-def augmentation(folder, sample=100):
+def train_augmentation(folder, sample=100):
+
+    print('Augmenting training data...')
     p = Augmentor.Pipeline(folder)
     p.add_operation(_filter)
     p.add_operation(blur)
@@ -140,3 +142,24 @@ def augmentation(folder, sample=100):
     p.resize(probability = 1, width = 256, height = 256)
     p.sample(sample, multi_threaded=True)
 
+
+def test_augmentation(folder, sample=100):
+
+    print('Augmenting test data...')
+    p = Augmentor.Pipeline(folder)
+    p.add_operation(_filter)
+    p.add_operation(blur)
+    p.add_operation(noise)
+
+    #p.black_and_white(probability = 1, threshold = 128)
+    p.rotate(probability = 0.3, max_left_rotation = 15, max_right_rotation = 15)
+
+    p.skew_left_right(probability = 0.03, magnitude = 1)
+    p.skew_corner(probability = 0.03, magnitude = 1)
+
+    p.random_erasing(probability=0.01, rectangle_area=0.11)
+    p.random_brightness(probability=0.8, min_factor=0.5, max_factor=1.5)
+    
+    p.invert(probability = 0.1)
+    p.resize(probability = 1, width = 256, height = 256)
+    p.sample(sample, multi_threaded=True)
