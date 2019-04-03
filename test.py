@@ -15,24 +15,24 @@ from skimage import io
 from tensorflow.keras.applications  import Xception#, VGG16, InceptionResNetV2, VGG19, InceptionV3
 
 from tensorflow.keras.optimizers import Adam, RMSprop, SGD
+from digit_generation_utils.preprocess import binarize_image
 
-model = load_model('/media/redowan/New Volume/bangla_digit_generation/bangla_digits/primumco_validation_96.h5')
 
-def load(url):
-#    np_image = Image.open(filename)
-    np_image = io.imread(url)
-    np_image = np.array(np_image).astype('float32')/255
-    np_image = transform.resize(np_image, (75, 75, 3))
+model = load_model('/media/redowan/New Volume/bangla_digit_generation/bangla_digits/prinumco/prinumco_v1.h5')
+
+def load(filename):
+    image = Image.open(filename)
+    np_image = np.array(image).astype('float32')/255
+    np_image = transform.resize(np_image, (96, 96, 3))
+    np_image[np_image>=128] = 1
+    np_image[np_image<128] =0
     np_image = np.expand_dims(np_image, axis=0)
     return np_image
 
-url = "https://i.imgur.com/SIFdnHa.png"
+url = "test.png"
 image = load(url)
-import numpy as np
 
 predict_matrix = model.predict(image)
 
-print(np.argmax(predict_matrix.ravel()))
+print(predict_matrix)
 
-# print(np.argmax(model.predict(
-# image)))

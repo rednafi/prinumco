@@ -10,7 +10,7 @@ from PIL import Image
 from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D,GlobalAveragePooling2D, GlobalMaxPooling2D, Dropout
 
-from tensorflow.keras.applications  import Xception#, VGG16, InceptionResNetV2, VGG19, InceptionV3
+from tensorflow.keras.applications  import MobileNetV2#, VGG16, InceptionResNetV2, VGG19, InceptionV3
 
 from tensorflow.keras.optimizers import Adam, RMSprop, SGD
 adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
@@ -20,11 +20,11 @@ train_folder = base_dir + 'train/'
 test_folder = base_dir + 'test/'
 
 """ keras model """
-input_shape = (75,75,1)
+input_shape = (96,96,3)
 num_classes = 10
 
 # defining the model
-base_model = Xception(include_top=False, input_shape=input_shape, classes=num_classes)
+base_model = MobileNetV2(include_top=False, input_shape=input_shape, classes=num_classes)
 x = base_model.output
 x = GlobalMaxPooling2D()(x)
 x = Dense(1000, activation='relu')(x)
@@ -37,6 +37,7 @@ model.compile(loss='categorical_crossentropy',
               optimizer=adam,
               metrics=['accuracy'])
 
+
 """ Data Generator """
 
 train_datagen = ImageDataGenerator(rescale=1./255,
@@ -46,23 +47,23 @@ train_datagen = ImageDataGenerator(rescale=1./255,
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(train_folder,
-        target_size=(75, 75),
-        batch_size=32,
+        target_size=(96, 96),
+        batch_size=64,
         class_mode='categorical')
 
 validation_generator = test_datagen.flow_from_directory( test_folder,
-        target_size=(75, 75),
-        batch_size=32,
+        target_size=(96, 96),
+        batch_size=64,
         class_mode='categorical')
 
 model.fit_generator(
         train_generator,
-        steps_per_epoch=6700,
-        epochs=10,
+        steps_per_epoch= 200,
+        epochs=3,
         validation_data=validation_generator,
-        validation_steps=910)
+        validation_steps=200)
 
 
 """ Saving the model """
-model.save('prinumco.h5')
+model.save('prinumco_v1.h5')
 
