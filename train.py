@@ -48,16 +48,25 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(train_folder,
         target_size=(96, 96),
+<<<<<<< HEAD
         batch_size=64,
+=======
+        batch_size=32,
+>>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
         class_mode='categorical')
 
 validation_generator = test_datagen.flow_from_directory( test_folder,
         target_size=(96, 96),
+<<<<<<< HEAD
         batch_size=64,
+=======
+        batch_size=32,
+>>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
         class_mode='categorical')
 
 model.fit_generator(
         train_generator,
+<<<<<<< HEAD
         steps_per_epoch= 200,
         epochs=3,
         validation_data=validation_generator,
@@ -66,4 +75,14 @@ model.fit_generator(
 
 """ Saving the model """
 model.save('prinumco_v1.h5')
+=======
+        steps_per_epoch=20,
+        epochs=10,
+        validation_data=validation_generator,
+        validation_steps=10)
+
+
+""" Saving the model """
+#model.save('prinumco.h5')
+>>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
 
