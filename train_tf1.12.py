@@ -11,7 +11,7 @@ from PIL import Image
 from keras.models import Sequential, Model, load_model
 from keras.layers import Dense, Conv2D, Flatten, MaxPooling2D,GlobalAveragePooling2D, GlobalMaxPooling2D, Dropout
 
-from keras.applications  import MobileNetV2
+from keras.applications.mobilenet_v2  import MobileNetV2
 
 from keras.optimizers import Adam, RMSprop, SGD
 adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)

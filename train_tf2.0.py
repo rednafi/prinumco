@@ -42,66 +42,27 @@ model.compile(loss='categorical_crossentropy',
 
 """ Data Generator """
 
-train_datagen = ImageDataGenerator(rescale=1./255,
-                
-        )
-
+train_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(train_folder,
         target_size=(96, 96),
-<<<<<<< HEAD:train_tf2.0.py
         batch_size=64,
-=======
-<<<<<<< HEAD
-        batch_size=64,
-=======
-        batch_size=32,
->>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
->>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
         class_mode='categorical')
 
 validation_generator = test_datagen.flow_from_directory( test_folder,
         target_size=(96, 96),
-<<<<<<< HEAD:train_tf2.0.py
         batch_size=64,
-=======
-<<<<<<< HEAD
-        batch_size=64,
-=======
-        batch_size=32,
->>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
->>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
         class_mode='categorical')
 
 model.fit_generator(
         train_generator,
-<<<<<<< HEAD:train_tf2.0.py
-        steps_per_epoch=3143,
+        steps_per_epoch=3300,
         epochs=50,
-=======
-<<<<<<< HEAD
-        steps_per_epoch= 200,
-        epochs=3,
         validation_data=validation_generator,
-        validation_steps=200)
+        validation_steps=500)
 
 
 """ Saving the model """
-model.save('prinumco_v1.h5')
-=======
-        steps_per_epoch=20,
-        epochs=10,
->>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
-        validation_data=validation_generator,
-        validation_steps=470)
-
-
-""" Saving the model """
-<<<<<<< HEAD:train_tf2.0.py
 model.save('prinumco_mobilenet.h5')
-=======
-#model.save('prinumco.h5')
->>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
->>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
 
