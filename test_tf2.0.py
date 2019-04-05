@@ -15,10 +15,9 @@ from skimage import io
 from tensorflow.keras.applications  import Xception#, VGG16, InceptionResNetV2, VGG19, InceptionV3
 
 from tensorflow.keras.optimizers import Adam, RMSprop, SGD
-from digit_generation_utils.preprocess import binarize_image
 
 
-model = load_model('/media/redowan/New Volume/bangla_digit_generation/bangla_digits/prinumco/prinumco_v1.h5')
+model = load_model('prinumco_mobilenet.h5')
 
 def load(filename):
     image = Image.open(filename)
@@ -27,10 +26,10 @@ def load(filename):
     np_image = np.expand_dims(np_image, axis=0)
     return np_image
 
-url = "test.png"
+url = "test7.png"
 image = load(url)
 
 predict_matrix = model.predict(image)
 
-print(predict_matrix)
+print(np.argmax(predict_matrix))
 

@@ -17,21 +17,16 @@ from keras.optimizers import Adam, RMSprop, SGD
 
 model = load_model('prinumco_mobilenet.h5')
 
-def load(url):
-#    np_image = Image.open(filename)
-    np_image = io.imread(url)
-    np_image = np.array(np_image).astype('float32')/255
+def load(filename):
+    image = Image.open(filename)
+    np_image = np.array(image).astype('float32')/255
     np_image = transform.resize(np_image, (96, 96, 3))
     np_image = np.expand_dims(np_image, axis=0)
     return np_image
 
-url = "https://i.imgur.com/SIFdnHa.png"
+url = "test7.png"
 image = load(url)
-
 
 predict_matrix = model.predict(image)
 
-print(np.argmax(predict_matrix.ravel()))
-
-# print(np.argmax(model.predict(
-# image)))
+print(np.argmax(predict_matrix))
