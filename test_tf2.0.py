@@ -31,6 +31,10 @@ def load(filename):
 
 url = "test.png"
 image = load(url)
+<<<<<<< HEAD:test_tf2.0.py
+
+=======
+>>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:test.py
 
 predict_matrix = model.predict(image)
 

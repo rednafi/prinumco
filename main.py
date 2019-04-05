@@ -22,11 +22,11 @@ from digit_generation_utils.preprocess import train_test_image_binarize
 def main_func():
     directory_generator()
     fonts = check_fonts()
-    train_datagen(fonts, image_count=1100)
-    test_datagen(fonts, image_count=15000)
+    train_datagen(fonts, image_count=2320)
+    test_datagen(fonts, image_count=2320)
     
     train_augmentation('train/', sample=200000)
-    test_augmentation('test/', sample= 15000)
+    test_augmentation('test/', sample= 28000)
     
     train_src = 'train/output'
     train_dst = 'train/'
@@ -39,7 +39,7 @@ def main_func():
     remove_output('train/output')
     remove_output('test/output')
     
-    train_test_image_binarize(train_folder= 'train/', test_folder= 'test/')
+    #train_test_image_binarize(train_folder= 'train/', test_folder= 'test/')
 
 
 

@@ -8,7 +8,7 @@ import os
 
 # digit generation
 def digit_generator(digit = '1', font_name = '/usr/share/fonts/truetype/custom/HindSiliguri-Regular.ttf',
-                    font_size = 265, x_pos= 50, y_pos = -60, color = (255,255,255)):
+                    font_size = 210, x_pos= 50, y_pos = -20, color = (255,255,255)):
     
     img = Image.new('RGB', (256, 256), color = color)
     d = ImageDraw.Draw(img)
@@ -18,7 +18,8 @@ def digit_generator(digit = '1', font_name = '/usr/share/fonts/truetype/custom/H
 
 
 # train data generation
-def train_datagen(fonts, image_count = 100):
+def train_datagen(fonts, color_list=[(255, 255, 255), (255, 255, 204), (0,128,128), (133,193,233)],
+color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
     """
     color_list is a list of tuples like (255,255,255) and color_names represents the corresponding names.
     ------------------------------------------------------------------------------------------------------
@@ -28,8 +29,6 @@ def train_datagen(fonts, image_count = 100):
     ------------------------------------------------------------------------------------------------------
     """
 
-    color_list = [(255,255,255), (255, 255, 204)]
-    color_names = color_names = ['white', 'yellow']
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
     
@@ -43,7 +42,7 @@ def train_datagen(fonts, image_count = 100):
                         img = digit_generator(digit = digit_bn, font_name = font_name, color = color)
                         img_cnt += 1
                         if img_cnt <= image_count: 
-                            img.save('train/{}/{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name))
+                            img.save('train/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
                     except:
                         pass
 
@@ -52,8 +51,9 @@ def train_datagen(fonts, image_count = 100):
 
 
 # test data generation
-def test_datagen(fonts, image_count = 100):
-    font_sizes = np.arange(150,200,1)
+def test_datagen(fonts, color_list=[(255, 255, 255), (255, 255, 204), (0, 128, 128), (133, 193, 233)],
+color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
+    font_size = 200
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
     
@@ -61,13 +61,13 @@ def test_datagen(fonts, image_count = 100):
         print('Generating test images...')
         img_cnt = 0
         for idx, font_name in tqdm(enumerate(fonts)):
-            for jdx, font_size in enumerate(font_sizes):
-                for kdx, (digit_bn, digit_en) in enumerate(zip(digits_bns,digits_ens)): 
+            for jdx, (digit_bn, digit_en) in enumerate(zip(digits_bns, digits_ens)):
+                for color, color_name in zip(color_list, color_names): 
                     try:
-                        img = digit_generator(digit = digit_bn, font_name = font_name, font_size=font_size)
+                        img = digit_generator(digit = digit_bn, font_name = font_name, font_size = font_size, color = color)
                         img_cnt += 1
                         if img_cnt <= image_count:
-                            img.save('test/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,kdx, font_name.split('.ttf')[0].split('/')[-1]))
+                            img.save('test/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
                     except:
                         pass
 

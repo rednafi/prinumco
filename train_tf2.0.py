@@ -10,7 +10,7 @@ from PIL import Image
 from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D,GlobalAveragePooling2D, GlobalMaxPooling2D, Dropout
 
-from tensorflow.keras.applications  import MobileNetV2#, VGG16, InceptionResNetV2, VGG19, InceptionV3
+from tensorflow.keras.applications  import MobileNetV2
 
 from tensorflow.keras.optimizers import Adam, RMSprop, SGD
 adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
@@ -28,7 +28,9 @@ base_model = MobileNetV2(include_top=False, input_shape=input_shape, classes=num
 x = base_model.output
 x = GlobalMaxPooling2D()(x)
 x = Dense(1000, activation='relu')(x)
+x = Dropout(0.5)(x)
 x = Dense(512, activation='relu')(x)
+x = Dropout(0.5)(x)
 x = Dense(128, activation='relu')(x)
 predictions = Dense(num_classes, activation='softmax')(x)
 
@@ -48,24 +50,36 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(train_folder,
         target_size=(96, 96),
+<<<<<<< HEAD:train_tf2.0.py
+        batch_size=64,
+=======
 <<<<<<< HEAD
         batch_size=64,
 =======
         batch_size=32,
 >>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
+>>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
         class_mode='categorical')
 
 validation_generator = test_datagen.flow_from_directory( test_folder,
         target_size=(96, 96),
+<<<<<<< HEAD:train_tf2.0.py
+        batch_size=64,
+=======
 <<<<<<< HEAD
         batch_size=64,
 =======
         batch_size=32,
 >>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
+>>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
         class_mode='categorical')
 
 model.fit_generator(
         train_generator,
+<<<<<<< HEAD:train_tf2.0.py
+        steps_per_epoch=3143,
+        epochs=50,
+=======
 <<<<<<< HEAD
         steps_per_epoch= 200,
         epochs=3,
@@ -78,11 +92,16 @@ model.save('prinumco_v1.h5')
 =======
         steps_per_epoch=20,
         epochs=10,
+>>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
         validation_data=validation_generator,
-        validation_steps=10)
+        validation_steps=470)
 
 
 """ Saving the model """
+<<<<<<< HEAD:train_tf2.0.py
+model.save('prinumco_mobilenet.h5')
+=======
 #model.save('prinumco.h5')
 >>>>>>> 0cee80b54a53a59325bc7436c2122bbbe17a8612
+>>>>>>> 05a7d1de50bb85388d44afa82f41f5d5b6211722:train.py
 

@@ -46,7 +46,7 @@ class Blur(Operation):
 # Filter op
 class Filters(Operation):
     # Filter types ->  mode, median, max, min, random
-    def __init__(self, probability, filter_type='mean', sizes = None, size=3):
+    def __init__(self, probability, filter_type='mean', sizes=None, size=3):
         Operation.__init__(self, probability)
         self.filter_type = filter_type
         self.size = size
@@ -97,7 +97,7 @@ class GaussianNoise(Operation):
             w, h = image.size
             c = len(image.getbands())
             noise = np.random.normal(self.mean, self.std, (h, w, c))
-            return Image.fromarray(np.uint8(np.asarray(image) + 0.003*noise ))
+            return Image.fromarray(np.uint8(np.asarray(image) + 0.01*noise ))
 
         augmented_images = []
 
@@ -107,9 +107,9 @@ class GaussianNoise(Operation):
         return augmented_images
 
 # Add noise operation
-noise = GaussianNoise(probability=0.9, mean = 0, std = 20.0 )
-_filter = Filters(probability=0.8, filter_type='random', size=5)
-blur = Blur(probability=0.7, blur_type='random', radius=(0, 100), fixed_radius=3)
+noise = GaussianNoise(probability=0.3, mean=0, std=20.0 )
+_filter = Filters(probability=0.9, filter_type='random', size=5)
+blur = Blur(probability=0.6, blur_type='random', radius=(0, 100), fixed_radius=3)
 
 
 def train_augmentation(folder, sample=100):
@@ -121,25 +121,25 @@ def train_augmentation(folder, sample=100):
     p.add_operation(noise)
 
     #p.black_and_white(probability = 1, threshold = 128)
-    p.rotate(probability = 0.3, max_left_rotation = 25, max_right_rotation = 25)
-    p.rotate90(probability = 0.005)
-    p.rotate270(probability = 0.005)
-    p.crop_random(probability=0.3, percentage_area = 0.9)
+    p.rotate(probability=0.3, max_left_rotation=25, max_right_rotation=25)
+    p.rotate90(probability=0.005)
+    p.rotate270(probability=0.005)
     p.zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
 
 
-    p.skew_tilt(probability = 0.03, magnitude = 1)
-    p.skew_left_right(probability = 0.03, magnitude = 1)
-    p.skew_top_bottom(probability = 0.02, magnitude = 1)
-    p.skew_corner(probability = 0.03, magnitude = 1)
-    p.skew(probability = 0.03, magnitude = 1)
+    p.skew_tilt(probability=0.01, magnitude=1)
+    p.skew_left_right(probability=0.02, magnitude=1)
+    p.skew_top_bottom(probability=0.03, magnitude=1)
+    p.skew_corner(probability=0.03, magnitude=1)
+    p.skew(probability=0.01, magnitude=1)
 
     p.random_erasing(probability=0.01, rectangle_area=0.11)
-    p.random_brightness(probability = 0.8, min_factor = 0.5, max_factor = 1.5)
-    p.random_distortion(probability = 0.01, grid_width = 2, grid_height = 2, magnitude = 1)
+    p.random_brightness(probability=0.5, min_factor=0.5, max_factor=1.5)
 
-    p.invert(probability = 0.09)
-    p.resize(probability = 1, width = 256, height = 256)
+    p.random_color(probability=0.2, min_factor=0, max_factor=1)
+    p.random_contrast(probability=0.3, min_factor=0.4, max_factor=1)
+    p.invert(probability=0.09)
+    p.resize(probability=1, width=256, height=256)
     p.sample(sample, multi_threaded=True)
 
 
@@ -152,14 +152,16 @@ def test_augmentation(folder, sample=100):
     p.add_operation(noise)
 
     #p.black_and_white(probability = 1, threshold = 128)
-    p.rotate(probability = 0.3, max_left_rotation = 15, max_right_rotation = 15)
+    p.rotate(probability=0.3, max_left_rotation=15, max_right_rotation=15)
 
-    p.skew_left_right(probability = 0.03, magnitude = 1)
-    p.skew_corner(probability = 0.03, magnitude = 1)
+    p.skew_left_right(probability=0.03, magnitude=1)
+    p.skew_corner(probability=0.03, magnitude=1)
 
     p.random_erasing(probability=0.01, rectangle_area=0.11)
     p.random_brightness(probability=0.8, min_factor=0.5, max_factor=1.5)
-    
-    p.invert(probability = 0.1)
-    p.resize(probability = 1, width = 256, height = 256)
+    p.greyscale(probability=0.2)
+    p.random_color(probability=0.5, min_factor=0, max_factor=1)
+    p.random_contrast(probability=0.2, min_factor=0.4, max_factor=1)
+    p.invert(probability=0.1)
+    p.resize(probability=1, width=256, height=256)
     p.sample(sample, multi_threaded=True)
