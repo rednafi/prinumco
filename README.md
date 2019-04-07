@@ -17,10 +17,10 @@ Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 2
 - Ubunutu 18.04 Bionic Beaver
 - Python 3.6
 ```
-## Digit Generation Workflow
+## Digit Generation & Augmentation Workflow
 
-## Benchmark CNN Model
-```
+
+## Baseline CNN Model
 ## Authors
 * Redowan Delowar
 * Manash Mandal
