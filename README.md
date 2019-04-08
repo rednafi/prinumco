@@ -127,10 +127,6 @@ We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://
 * Follow a similar procedure for training and testing in tensorflow 1.12.
 
 
-
-## Author
-@rednafi
-
 ## Contributors
 * @manashmndl
 
