@@ -4,6 +4,34 @@ Several initiatives have been taken to label and aggregate Bengali handwritten d
 ## Dataset Summary
 Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 256) images of 10 digits (232 images for each digit) and propels them through an augmentation pipeline to generate 200k train images. A similar procedure with different augmentation pipeline was followed to generate 30k test images.
 
+Generated images are organized in the following hierarchy:
+```
+dataset
+      |- train
+          |- 0
+            |- img0.jpg
+            |- img1.jpg
+            ...........
+          |- 1
+            |- img0.jpg
+            |- img1.jpg
+            ...........
+          |- 2
+            .....
+      |- test
+          |- 0
+             |- img0.jpg
+             |- img1.jpg
+              ...........
+          |- 1
+             |- img0.jpg
+             |- img1.jpg
+            ...........
+          |- 2
+            .....
+      
+```
+
 
 ### Original Images
 <img src="https://user-images.githubusercontent.com/30027932/55688081-62db0c80-5996-11e9-9b85-245ef2e50469.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688087-7a19fa00-5996-11e9-908f-49ab1879b223.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688089-89994300-5996-11e9-866e-4f31c3e1a8c0.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688092-9c137c80-5996-11e9-8400-033de289a7fb.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688104-c2d1b300-5996-11e9-9907-bf4263cd4db9.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688109-d250fc00-5996-11e9-999b-cdcaf01e3f4b.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688114-e0068180-5996-11e9-8fe5-b4011de41083.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688119-f8769c00-5996-11e9-915c-73558b0cb65a.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688127-07f5e500-5997-11e9-85f8-88b6e1136530.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688132-18a65b00-5997-11e9-946f-e4c611a859ef.jpg" width="18%"></img> 
