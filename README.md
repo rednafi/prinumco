@@ -59,7 +59,6 @@ In order to mimic real life images of Bengali digits, we generated the images wi
 * random_contrast(probability=0.3, min_factor=0.4, max_factor=1)
 * invert(probability=0.09)
 * resize(probability=1, width=256, height=256)
-* sample(sample, multi_threaded=True)
 
 For further details on individual augmentation operation, please checkout the [documentation](https://augmentor.readthedocs.io/en/master/code.html#Augmentor.Pipeline.Pipeline.crop_random) of augmentor libarary.
 
@@ -79,6 +78,10 @@ pip install requirements.txt
 
 **Image Generation and Augmentation**
 ```
+-----------------------------------------------------------------------------------------------------------
+Folder Structure
+-----------------------------------------------------------------------------------------------------------
+
 | - Parent Folder
       |- bfonts
       |- digit_generation_utils
@@ -90,13 +93,17 @@ pip install requirements.txt
 ```
 To run the digit generation and augmentation pipeline,
 * Make a folder name ```custom``` in the path ```/usr/share/fonts/truetype``` 
-* Copy the fonts from the ```bfonts``` folder to ```/usr/share/fonts/truetype``` path
+* Copy the fonts from the ```bfonts``` folder to ```/usr/share/fonts/truetype/custom``` path
 * Run the ```main.py``` file to generate, augment and prepare and the images in their corresponding folders. 
        
        
 **Training and Validating a baseline CNN model**
 
 ```
+-----------------------------------------------------------------------------------------------------------
+Folder Structure
+-----------------------------------------------------------------------------------------------------------
+
 cnn_model
 	|- train_tf1.12.py
 	|- test_tf1.12.py
