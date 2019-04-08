@@ -4,20 +4,21 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 import os 
+import keras
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
-from tensorflow.keras.models import Sequential, Model, load_model
-from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D,GlobalAveragePooling2D, GlobalMaxPooling2D, Dropout
+from keras.models import Sequential, Model, load_model
+from keras.layers import Dense, Conv2D, Flatten, MaxPooling2D,GlobalAveragePooling2D, GlobalMaxPooling2D, Dropout
 
-from tensorflow.keras.applications  import MobileNetV2
+from keras.applications.mobilenet_v2  import MobileNetV2
 
-from tensorflow.keras.optimizers import Adam, RMSprop, SGD
+from keras.optimizers import Adam, RMSprop, SGD
 adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
 
 base_dir = './'
-train_folder = base_dir + 'train/'
-test_folder = base_dir + 'test/'
+train_folder = base_dir + 'dataset/train/'
+test_folder = base_dir + 'dataset/test/'
 
 """ keras model """
 input_shape = (96,96,3)
@@ -42,7 +43,10 @@ model.compile(loss='categorical_crossentropy',
 
 """ Data Generator """
 
-train_datagen = ImageDataGenerator(rescale=1./255)
+train_datagen = ImageDataGenerator(rescale=1./255,
+                
+        )
+
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(train_folder,
@@ -65,4 +69,3 @@ model.fit_generator(
 
 """ Saving the model """
 model.save('prinumco_mobilenet.h5')
-
