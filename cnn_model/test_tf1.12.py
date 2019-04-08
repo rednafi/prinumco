@@ -24,7 +24,7 @@ def load(filename):
     np_image = np.expand_dims(np_image, axis=0)
     return np_image
 
-url = "test7.png"
+url = "test.png"
 image = load(url)
 
 predict_matrix = model.predict(image)

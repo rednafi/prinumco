@@ -1,7 +1,8 @@
 *.jpg
 *.png
+! test.png
 
-*.h5
+# *.h5
 *.zip
 
 # Byte-compiled / optimized / DLL files
