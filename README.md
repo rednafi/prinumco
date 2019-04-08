@@ -128,7 +128,9 @@ We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://
 
 
 
-## Authors
-* Redowan Delowar
-* Manash Mandal
+## Author
+@rednafi
+
+## Contributors
+* @manashmndl
 
