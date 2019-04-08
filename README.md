@@ -40,11 +40,16 @@ dataset
 <img src="https://user-images.githubusercontent.com/30027932/55688245-5e175800-5998-11e9-84d8-407fa6c98ea4.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688250-6a9bb080-5998-11e9-8a2c-7ff60e8f3e93.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688259-78e9cc80-5998-11e9-8eba-687f011ba9cd.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688269-8acb6f80-5998-11e9-870c-e2abb153fcb8.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688279-9cad1280-5998-11e9-84bd-aeffa354f675.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688287-acc4f200-5998-11e9-836a-c12fc34b0db1.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688293-bd756800-5998-11e9-8672-27c41a5afb4f.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688305-d847dc80-5998-11e9-8e98-c509730c8f25.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688355-69b74e80-5999-11e9-8c7c-ee9b95a83580.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688383-b4d16180-5999-11e9-836a-724c300d26d4.jpg" width="18%"></img> 
 
 
-## Prerequisites
+## Requirements
+* Ubunutu 18.04 Bionic Beaver
+
+**Image Generation**
+```pip install requirements.txt
 ```
-- Ubunutu 18.04 Bionic Beaver
-- Python 3.6
-```
+**Running the CNN**
+* tensorflow 1.12/2.0 alpha
+* keras 2.2.4 (Only applicable for tensorflow 1.12)
+
 ## Digit Generation & Augmentation Workflow
 
 
