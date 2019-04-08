@@ -53,18 +53,19 @@ pip install requirements.txt
 ## Script arrangement & Order of Execution
 ```
 * Image Generation and Augmentation
-      | - Parent Folder
-            |- digit_generation_utils
-                  - directory_generation_check_font.py (Making necessary directories to contain the dataset)
-                  - digit_generation.py (Generating the actual digits)
-                  - image_augmentation.py (Augmenting the images)
-                  - mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
-             main.py (Script containing the main function)
+| - Parent Folder
+      |- digit_generation_utils
+            - directory_generation_check_font.py (Making necessary directories to contain the dataset)
+            - digit_generation.py (Generating the actual digits)
+            - image_augmentation.py (Augmenting the images)
+            - mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
+       main.py (Script containing the main function)
 ```
 Running the ```main.py``` file will generate, augment and prepare and the images in their corresponding folders.           
        
        
 * Training and Validating a baseline CNN model
+Put the dataset folder in the main folder (In case you haven't generated the images yourself), and depending on your tensroflow run either of the ```train``` 
 
 
 
