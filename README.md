@@ -18,28 +18,29 @@ Generated images are organized in the following hierarchy:
 Folder Structure
 ------------------------------------------------------------------------------------------------------
 
-dataset
-    |- train
-        |- 0
-            |- img0.jpg
-            |- img1.jpg
+.
+├── dataset
+    ├── train
+        ├── 0
+            ├── img0.jpg
+            ├── img1.jpg
             ...........
-        |- 1
-            |- img0.jpg
-            |- img1.jpg
+        ├── 1
+            ├── img0.jpg
+            ├── img1.jpg
             ...........
-        |- 2
+        ├── 2
             .....
-    |- test
-        |- 0
-            |- img0.jpg
-            |- img1.jpg
+    ├── test
+        ├── 0
+            ├── img0.jpg
+            ├── img1.jpg
             ...........
-        |- 1
-            |- img0.jpg
-            |- img1.jpg
+        ├── 1
+            ├── img0.jpg
+            ├──img1.jpg
             ...........
-        |- 2
+        ├── 2
             .....     
 ```
 ### List of Applied Augmentations
@@ -87,14 +88,14 @@ pip install requirements.txt
 Folder Structure
 ------------------------------------------------------------------------------------------------------
 
-| - Parent Folder
-    |- bfonts
-    |- digit_generation_utils
-        - directory_generation_check_font.py (Making necessary directories to contain the dataset)
-        - digit_generation.py (Generating the actual digits)
-        - image_augmentation.py (Augmenting the images)
-        - mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
-    main.py (Script containing the main function)
+.
+├── bfonts
+├── digit_generation_utils
+    ├── directory_generation_check_font.py (Making necessary directories to contain the dataset)
+    ├── digit_generation.py (Generating the actual digits)
+    ├── image_augmentation.py (Augmenting the images)
+    ├── mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
+├── main.py (Script containing the main function)
 ```
 To run the digit generation and augmentation pipeline,
 * Make a folder name ```custom``` in the path ```/usr/share/fonts/truetype``` 
@@ -109,13 +110,14 @@ To run the digit generation and augmentation pipeline,
 Folder Structure
 ------------------------------------------------------------------------------------------------------
 
+.
 cnn_model
-	|- train_tf1.12.py
-	|- test_tf1.12.py
-	|- train_tf2.0.py
-	|- test_tf2.0.py
-	|- prinumco_mobilenet.h5
-	|- test.png
+	├── train_tf1.12.py
+	├── test_tf1.12.py
+	├── train_tf2.0.py
+	├── test_tf2.0.py
+	├── prinumco_mobilenet.h5
+	├── test.png
 ```
 We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to establish a baseline CNN model for benchmarking purposes. However, we also provided necessary scripts for training and testing models in tensorflow 1.12.
 
