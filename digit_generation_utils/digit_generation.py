@@ -32,7 +32,7 @@ color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
     
-    if len(os.listdir('train/0')) == 0:
+    if len(os.listdir('dataset/train/0')) == 0:
         print('Generating training images...')
         img_cnt = 0
         for idx, font_name in tqdm(enumerate(fonts)):
@@ -42,7 +42,7 @@ color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
                         img = digit_generator(digit = digit_bn, font_name = font_name, color = color)
                         img_cnt += 1
                         if img_cnt <= image_count: 
-                            img.save('train/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
+                            img.save('dataset/train/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
                     except:
                         pass
 
@@ -57,7 +57,7 @@ color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
     
-    if len(os.listdir('test/0')) ==0:
+    if len(os.listdir('dataset/test/0')) ==0:
         print('Generating test images...')
         img_cnt = 0
         for idx, font_name in tqdm(enumerate(fonts)):
@@ -67,7 +67,7 @@ color_names =  ['white', 'yellow', 'teal', 'sky_blue'],image_count = 100):
                         img = digit_generator(digit = digit_bn, font_name = font_name, font_size = font_size, color = color)
                         img_cnt += 1
                         if img_cnt <= image_count:
-                            img.save('test/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
+                            img.save('dataset/test/{}/{}_{}_{}_{}.jpg'.format(digit_en,idx,jdx,color_name,font_name.split('.ttf')[0].split('/')[-1]))
                     except:
                         pass
 

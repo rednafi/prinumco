@@ -3,21 +3,15 @@ from glob import glob
 
 # making directories
 def directory_generator():
-    for i in range(10):
-        if not os.path.exists("train"):
-            os.mkdir('train')
+    # ensuring that the directories exist
+    def ensure_dir(file_path):
+        directory = os.path.dirname(file_path)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
-        if not os.path.exists('test'):
-            os.mkdir('test')
-            
-        if not os.path.exists('train/'+ str(i)):
-            os.mkdir('train/'+ str(i))
-            
-        if not os.path.exists('test/'+ str(i)):
-            os.mkdir('test/' + str(i))
-            
-        else:
-            pass
+    for i in range(10):
+        ensure_dir('dataset/train/' + str(i) + '/')
+        ensure_dir('dataset/test/'+ str(i) + '/')
 
 
 # checking the fonts
