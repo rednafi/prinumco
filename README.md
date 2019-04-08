@@ -12,32 +12,34 @@ Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 2
 <img src="https://user-images.githubusercontent.com/30027932/55688245-5e175800-5998-11e9-84d8-407fa6c98ea4.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688250-6a9bb080-5998-11e9-8a2c-7ff60e8f3e93.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688259-78e9cc80-5998-11e9-8eba-687f011ba9cd.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688269-8acb6f80-5998-11e9-870c-e2abb153fcb8.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688279-9cad1280-5998-11e9-84bd-aeffa354f675.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688287-acc4f200-5998-11e9-836a-c12fc34b0db1.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688293-bd756800-5998-11e9-8672-27c41a5afb4f.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688305-d847dc80-5998-11e9-8e98-c509730c8f25.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688355-69b74e80-5999-11e9-8c7c-ee9b95a83580.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688383-b4d16180-5999-11e9-836a-724c300d26d4.jpg" width="18%"></img> 
 
 Generated images are organized in the following hierarchy:
+
 ```
 ------------------------------------------------------------------------------------------------------
 Folder Structure
 ------------------------------------------------------------------------------------------------------
+
 dataset
-      |- train
-          |- 0
+    |- train
+        |- 0
             |- img0.jpg
             |- img1.jpg
             ...........
-          |- 1
+        |- 1
             |- img0.jpg
             |- img1.jpg
             ...........
-          |- 2
+        |- 2
             .....
-      |- test
-          |- 0
-             |- img0.jpg
-             |- img1.jpg
-              ...........
-          |- 1
-             |- img0.jpg
-             |- img1.jpg
+    |- test
+        |- 0
+            |- img0.jpg
+            |- img1.jpg
             ...........
-          |- 2
+        |- 1
+            |- img0.jpg
+            |- img1.jpg
+            ...........
+        |- 2
             .....     
 ```
 ### List of Applied Augmentations
@@ -86,13 +88,13 @@ Folder Structure
 ------------------------------------------------------------------------------------------------------
 
 | - Parent Folder
-      |- bfonts
-      |- digit_generation_utils
-            - directory_generation_check_font.py (Making necessary directories to contain the dataset)
-            - digit_generation.py (Generating the actual digits)
-            - image_augmentation.py (Augmenting the images)
-            - mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
-       main.py (Script containing the main function)
+    |- bfonts
+    |- digit_generation_utils
+        - directory_generation_check_font.py (Making necessary directories to contain the dataset)
+        - digit_generation.py (Generating the actual digits)
+        - image_augmentation.py (Augmenting the images)
+        - mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
+    main.py (Script containing the main function)
 ```
 To run the digit generation and augmentation pipeline,
 * Make a folder name ```custom``` in the path ```/usr/share/fonts/truetype``` 
