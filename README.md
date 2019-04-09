@@ -81,7 +81,7 @@ pip install requirements.txt
 * tensorflow 1.12/2.0 alpha
 * keras 2.2.4 (Only applicable for tensorflow 1.12)
 
-## Script arrangement & Order of Execution
+## Script Arrangement & Order of Execution
 
 **Image Generation and Augmentation**
 ```
@@ -104,7 +104,7 @@ To run the digit generation and augmentation pipeline,
 * Run the ```main.py``` file to generate, augment and prepare and the images in their corresponding folders. 
        
        
-**Training and Validating a baseline CNN model**
+**Training and Validating a Baseline CNN model**
 
 ```
 ------------------------------------------------------------------------------------------------------
