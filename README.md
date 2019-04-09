@@ -1,4 +1,6 @@
 # PriNumco
+[! Printed Bengali Digit Dataset](https://drive.google.com/file/d/1ICR4I5Rmtst8eGFqQFudhnG4YSEIWozq/view?usp=sharing)
+
 Several initiatives have been taken to label and aggregate Bengali handwritten digit images with the aim of constructing robust digit recognition systems. However, deeplearning models trained on handwritten digit data do not generalize well on images of printed digits. PriNumco is a Compilation of Printed Bengali Digit images which aims to provide an extremely robust training-validation dataset for building recognition systems that can classify images of printed digits, sourced from license plates, billboards, banners and other real-life data sources.
 
 ## Dataset Summary
