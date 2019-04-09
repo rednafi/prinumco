@@ -1,8 +1,8 @@
 # PriNumco
-Several initiatives have been taken to label and aggregate Bengali handwritten digit images with the aim of constructing robust digit recognition systems. However, models trained on handwritten digits data do not generalize well on images of printed digits. PriNumco is a compilation of printed Bengali digits which aims to provide an extremely robust training-validation dataset for building recognition systems that perform well on images of printed digits sourced from license plates, billboards, banners and other real-life sources.
+Several initiatives have been taken to label and aggregate Bengali handwritten digit images with the aim of constructing robust digit recognition systems. However, deeplearning models trained on handwritten digit data do not generalize well on images of printed digits. PriNumco is a Compilation of Printed Bengali Digit images which aims to provide an extremely robust training-validation dataset for building recognition systems that can classify images of printed digits, sourced from license plates, billboards, banners and other real-life data sources.
 
 ## Dataset Summary
-Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 256) images of 10 digits (232 images for each digit) and propels them through an augmentation pipeline to generate 200k train images. A similar procedure with different augmentation pipeline was followed to generate 30k test images.
+Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 256) images of 10 digits (232 images per digit) and propels them through an augmentation pipeline to generate 200k train images. A similar procedure with different augmentation pipeline was followed to generate 30k test images.
 
 ## Sample Images
 ### Original Images
@@ -46,25 +46,25 @@ Folder Structure
 ### List of Applied Augmentations
 In order to mimic real life images of Bengali digits, we generated the images with *white*, *yellow*, *sky blue* and *teal* colored backgrounds and used [augmentor](https://github.com/mdbloice/Augmentor) library to apply the following augmentations on both the train and test dataset:
 
-* gaussian_noise(probability=0.3, mean=0, std=20.0 )
-* blur(probability=0.6, blur_type='random', radius=(0, 100), fixed_radius=3)
-* random_filter(probability=0.9, filter_type='random', size=5)
-* black_and_white(probability = 1, threshold = 128)
-* rotate(probability=0.3, max_left_rotation=25, max_right_rotation=25)
-* rotate90(probability=0.005)
-* rotate270(probability=0.005)
-* zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
-* skew_tilt(probability=0.01, magnitude=1)
-* skew_left_right(probability=0.02, magnitude=1)
-* skew_top_bottom(probability=0.03, magnitude=1)
-* skew_corner(probability=0.03, magnitude=1)
-* skew(probability=0.01, magnitude=1)
-* random_erasing(probability=0.01, rectangle_area=0.11)
-* random_brightness(probability=0.5, min_factor=0.5, max_factor=1.5)
-* random_color(probability=0.2, min_factor=0, max_factor=1)
-* random_contrast(probability=0.3, min_factor=0.4, max_factor=1)
-* invert(probability=0.09)
-* resize(probability=1, width=256, height=256)
+* **gaussian_noise**(probability=0.3, mean=0, std=20.0 )
+* **blur**(probability=0.6, blur_type='random', radius=(0, 100), fixed_radius=3)
+* **random_filter**(probability=0.9, filter_type='random', size=5)
+* **black_and_white**(probability = 1, threshold = 128)
+* **rotate**(probability=0.3, max_left_rotation=25, max_right_rotation=25)
+* **rotate90**(probability=0.005)
+* **rotate270**(probability=0.005)
+* **zoom**(probability=0.1, min_factor=1.01, max_factor=1.03)
+* **skew_tilt**(probability=0.01, magnitude=1)
+* **skew_left_right**(probability=0.02, magnitude=1)
+* **skew_top_bottom**(probability=0.03, magnitude=1)
+* **skew_corner**(probability=0.03, magnitude=1)
+* **skew**(probability=0.01, magnitude=1)
+* **random_erasing**(probability=0.01, rectangle_area=0.11)
+* **random_brightness**(probability=0.5, min_factor=0.5, max_factor=1.5)
+* **random_color**(probability=0.2, min_factor=0, max_factor=1)
+* **random_contrast**(probability=0.3, min_factor=0.4, max_factor=1)
+* **invert**(probability=0.09)
+* **resize**(probability=1, width=256, height=256)
 
 For further details on individual augmentation operation, please checkout the [documentation](https://augmentor.readthedocs.io/en/master/code.html#Augmentor.Pipeline.Pipeline.crop_random) of augmentor libarary.
 
@@ -74,7 +74,6 @@ For further details on individual augmentation operation, please checkout the [d
 **Image Generation**
 ```
 pip install requirements.txt
-
 ```
 **Running the CNN model**
 * tensorflow 1.12/2.0 alpha
@@ -119,7 +118,7 @@ cnn_model
 	├── prinumco_mobilenet.h5
 	├── test.png
 ```
-We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to establish a baseline CNN model for benchmarking purposes. However, we also provided necessary scripts for training and testing models in tensorflow 1.12.
+We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to provide a baseline CNN model for benchmarking purposes. However, we also provided necessary scripts for training and testing the model in tensorflow 1.12.
 
 * Put the dataset folder in the primary folder (In case you haven't generated the images yourself) 
 * If you are using tensorflow 2.0, run the ```train_tf2.0.py``` file to train the baseline model
