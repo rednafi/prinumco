@@ -21,28 +21,28 @@ Folder Structure
 ------------------------------------------------------------------------------------------------------
 
 .
-├── dataset
-    ├── train
-        ├── 0
+├── dataset/
+    ├── train/
+        ├── 0/
             ├── img0.jpg
             ├── img1.jpg
             ...........
-        ├── 1
+        ├── 1/
             ├── img0.jpg
             ├── img1.jpg
             ...........
-        ├── 2
+        ├── 2/
             .....
-    ├── test
-        ├── 0
+    ├── test/
+        ├── 0/
             ├── img0.jpg
             ├── img1.jpg
             ...........
-        ├── 1
+        ├── 1/
             ├── img0.jpg
             ├──img1.jpg
             ...........
-        ├── 2
+        ├── 2/
             .....     
 ```
 ### List of Applied Augmentations
@@ -90,8 +90,8 @@ Folder Structure
 ------------------------------------------------------------------------------------------------------
 
 .
-├── bfonts
-├── digit_generation_utils
+├── bfonts/
+├── digit_generation_utils/
     ├── directory_generation_check_font.py (Making necessary directories to contain the dataset)
     ├── digit_generation.py (Generating the actual digits)
     ├── image_augmentation.py (Augmenting the images)
@@ -112,7 +112,7 @@ Folder Structure
 ------------------------------------------------------------------------------------------------------
 
 .
-cnn_model
+cnn_model/
 	├── train_tf1.12.py
 	├── test_tf1.12.py
 	├── train_tf2.0.py
