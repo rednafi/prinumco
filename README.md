@@ -75,7 +75,7 @@ For further details on individual augmentation operation, please checkout the [d
 
 **Image Generation**
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 **Running the CNN model**
 * tensorflow 1.12/2.0 alpha
