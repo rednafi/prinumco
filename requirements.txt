@@ -13,7 +13,7 @@ Pillow==6.0.0
 pyparsing==2.4.0
 python-dateutil==2.8.0
 PyWavelets==1.0.3
-scikit-image==0.14.2
+scikit-image==0.15.0
 scipy==1.2.1
 six==1.12.0
 toolz==0.9.0
