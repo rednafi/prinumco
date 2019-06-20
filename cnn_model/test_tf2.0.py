@@ -27,6 +27,7 @@ model = load_model("prinumco_mobilenet.h5")
 
 
 def load(filename):
+
     image = Image.open(filename)
     np_image = np.array(image).astype("float32") / 255
     np_image = transform.resize(np_image, (96, 96, 3))

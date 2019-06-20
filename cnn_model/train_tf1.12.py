@@ -36,6 +36,7 @@ num_classes = 10
 base_model = MobileNetV2(
     include_top=False, input_shape=input_shape, classes=num_classes
 )
+
 x = base_model.output
 x = GlobalMaxPooling2D()(x)
 x = Dense(1000, activation="relu")(x)

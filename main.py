@@ -19,6 +19,7 @@ from digit_generation_utils.mixing_aug_image_with_gen_image import copytree, rem
 
 # __main__
 def main_func():
+
     directory_generator()
     fonts = check_fonts()
     train_datagen(fonts, image_count=2320)
