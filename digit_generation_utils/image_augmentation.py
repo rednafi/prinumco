@@ -4,16 +4,18 @@ from PIL import Image, ImageFilter
 from PIL import ImageDraw
 from PIL import ImageFont
 import random
-import numpy as np 
+import numpy as np
 
 
-# Bluring 
+# Bluring
 class Blur(Operation):
     # blur_type -> gaussian | box_blur | random
     # radius range -> (lower_range, upper_range)
 
-    # if fixed radius is set a Float value, range won't be used 
-    def __init__(self, probability, blur_type='gaussian', radius=(0, 1), fixed_radius=None):
+    # if fixed radius is set a Float value, range won't be used
+    def __init__(
+        self, probability, blur_type="gaussian", radius=(0, 1), fixed_radius=None
+    ):
         Operation.__init__(self, probability)
         self.blur_type = blur_type
         self.radius = radius
@@ -21,13 +23,21 @@ class Blur(Operation):
 
     def perform_operation(self, images):
         def do(image):
-            # Choose blur type 
-            if self.blur_type != 'random':
-                blur_filter = ImageFilter.GaussianBlur if self.blur_type == 'gaussian' else ImageFilter.BoxBlur
+            # Choose blur type
+            if self.blur_type != "random":
+                blur_filter = (
+                    ImageFilter.GaussianBlur
+                    if self.blur_type == "gaussian"
+                    else ImageFilter.BoxBlur
+                )
             else:
-                coin_toss = random.choice([ 'gaussian', 'box_blur' ])
-                blur_filter = ImageFilter.GaussianBlur if coin_toss == 'gaussian' else ImageFilter.BoxBlur
-            # Choose radius 
+                coin_toss = random.choice(["gaussian", "box_blur"])
+                blur_filter = (
+                    ImageFilter.GaussianBlur
+                    if coin_toss == "gaussian"
+                    else ImageFilter.BoxBlur
+                )
+            # Choose radius
             if self.fixed_radius == None:
                 assert len(self.radius) == 2
                 radius = np.random.uniform(low=self.radius[0], high=self.radius[1])
@@ -36,7 +46,7 @@ class Blur(Operation):
             return image.filter(blur_filter(radius=radius))
 
         augmented_images = []
-        
+
         for image in images:
             augmented_images.append(do(image))
 
@@ -46,27 +56,27 @@ class Blur(Operation):
 # Filter op
 class Filters(Operation):
     # Filter types ->  mode, median, max, min, random
-    def __init__(self, probability, filter_type='mean', sizes=None, size=3):
+    def __init__(self, probability, filter_type="mean", sizes=None, size=3):
         Operation.__init__(self, probability)
         self.filter_type = filter_type
         self.size = size
         self.sizes = sizes
         self.filters = {
-            'median' : ImageFilter.MedianFilter,
-            'min' : ImageFilter.MinFilter,
-            'max' : ImageFilter.MaxFilter,
-            'mode' : ImageFilter.ModeFilter
+            "median": ImageFilter.MedianFilter,
+            "min": ImageFilter.MinFilter,
+            "max": ImageFilter.MaxFilter,
+            "mode": ImageFilter.ModeFilter,
         }
-    
+
     def perform_operation(self, images):
         def do(image):
             if self.sizes == None:
                 size = self.size
             else:
                 size = random.choice(self.sizes)
-            
-            if self.filter_type == 'random':
-                filter_type = random.choice(['median', 'max', 'min', 'mode'])
+
+            if self.filter_type == "random":
+                filter_type = random.choice(["median", "max", "min", "mode"])
             else:
                 filter_type = self.filter_type
 
@@ -78,7 +88,6 @@ class Filters(Operation):
             augmented_images.append(do(image))
 
         return augmented_images
-    
 
 
 # image augmentation
@@ -87,6 +96,7 @@ class GaussianNoise(Operation):
     The class `:class noise` is used to perfrom random noise on images passed
      to its :func:`perform_operation` function.
     """
+
     def __init__(self, probability, mean, std):
         Operation.__init__(self, probability)
         self.mean = mean
@@ -97,35 +107,35 @@ class GaussianNoise(Operation):
             w, h = image.size
             c = len(image.getbands())
             noise = np.random.normal(self.mean, self.std, (h, w, c))
-            return Image.fromarray(np.uint8(np.asarray(image) + 0.01*noise ))
+            return Image.fromarray(np.uint8(np.asarray(image) + 0.01 * noise))
 
         augmented_images = []
 
         for image in images:
             augmented_images.append(do(image))
-        
+
         return augmented_images
 
+
 # Add noise operation
-noise = GaussianNoise(probability=0.3, mean=0, std=20.0 )
-_filter = Filters(probability=0.9, filter_type='random', size=5)
-blur = Blur(probability=0.6, blur_type='random', radius=(0, 100), fixed_radius=3)
+noise = GaussianNoise(probability=0.3, mean=0, std=20.0)
+_filter = Filters(probability=0.9, filter_type="random", size=5)
+blur = Blur(probability=0.6, blur_type="random", radius=(0, 100), fixed_radius=3)
 
 
 def train_augmentation(folder, sample=100):
 
-    print('Augmenting training data...')
+    print("Augmenting training data...")
     p = Augmentor.Pipeline(folder)
     p.add_operation(_filter)
     p.add_operation(blur)
     p.add_operation(noise)
 
-    #p.black_and_white(probability = 1, threshold = 128)
+    # p.black_and_white(probability = 1, threshold = 128)
     p.rotate(probability=0.3, max_left_rotation=25, max_right_rotation=25)
     p.rotate90(probability=0.005)
     p.rotate270(probability=0.005)
     p.zoom(probability=0.1, min_factor=1.01, max_factor=1.03)
-
 
     p.skew_tilt(probability=0.01, magnitude=1)
     p.skew_left_right(probability=0.02, magnitude=1)
@@ -145,13 +155,13 @@ def train_augmentation(folder, sample=100):
 
 def test_augmentation(folder, sample=100):
 
-    print('Augmenting test data...')
+    print("Augmenting test data...")
     p = Augmentor.Pipeline(folder)
     p.add_operation(_filter)
     p.add_operation(blur)
     p.add_operation(noise)
 
-    #p.black_and_white(probability = 1, threshold = 128)
+    # p.black_and_white(probability = 1, threshold = 128)
     p.rotate(probability=0.3, max_left_rotation=15, max_right_rotation=15)
 
     p.skew_left_right(probability=0.03, magnitude=1)
