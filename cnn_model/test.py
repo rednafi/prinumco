@@ -1,27 +1,25 @@
+import os
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-
-import os
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
-from skimage import transform
-from tensorflow.keras.models import Sequential, Model, load_model
+from skimage import io, transform
+from tensorflow.keras.applications import Xception
 from tensorflow.keras.layers import (
-    Dense,
     Conv2D,
+    Dense,
+    Dropout,
     Flatten,
-    MaxPooling2D,
     GlobalAveragePooling2D,
     GlobalMaxPooling2D,
-    Dropout,
+    MaxPooling2D,
 )
-from skimage import io
-from tensorflow.keras.applications import Xception
-from tensorflow.keras.optimizers import Adam, RMSprop, SGD
-
+from tensorflow.keras.models import Model, Sequential, load_model
+from tensorflow.keras.optimizers import SGD, Adam, RMSprop
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tqdm import tqdm
 
 model = load_model("prinumco_mobilenet.h5")
 
@@ -41,4 +39,3 @@ image = load(url)
 predict_matrix = model.predict(image)
 
 print(np.argmax(predict_matrix))
-
