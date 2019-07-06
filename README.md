@@ -142,9 +142,9 @@ To run the digit generation and augmentation pipeline,
 We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to provide a baseline CNN model for benchmarking purposes. However, we also provided necessary scripts for training and testing the model in tensorflow 1.12.
 
 -   Put the dataset folder in the primary folder (In case you haven't generated the images yourself) 
--   If you are using tensorflow 2.0, run the `train_tf2.0.py` file to train the baseline model
--   For testing out the model (tf 2.0), run the `test_tf2.0.py` file (This will load our pretrained model to predict the class of a sample `test.png` image)
--   Follow a similar procedure for training and testing in tensorflow 1.12.
+-   If you have tensorflow 2.0 installed, run the `train.py` file to train the baseline model
+-   For testing out the model (tf 2.0), run the `test.py` file (This will load our pretrained model to predict the class of a sample `test.png` image)
+
 
 ## Contributors
 
