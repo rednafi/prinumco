@@ -131,7 +131,7 @@ To run the digit generation and augmentation pipeline,
 
 -   Make a folder name `custom` in the path `/usr/share/fonts/truetype` 
 -   Copy the fonts from the `bfonts` folder to `/usr/share/fonts/truetype/custom` path
--   Run the `main.py` file to generate, augment and prepare and the images in their corresponding folders. 
+-   Run the `digit_gen_main.py` file to generate, augment and prepare and the images in their corresponding folders. 
          
 
 **Training and Validating a Baseline CNN model**
