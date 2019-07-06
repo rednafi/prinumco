@@ -5,6 +5,9 @@ from tqdm import tqdm
 import numpy as np
 import os
 
+train_dir = "dataset/train/"
+test_dir = "dataset/test/"
+
 
 # digit generation
 def digit_generator(
@@ -42,7 +45,7 @@ def train_datagen(
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
 
-    if len(os.listdir("dataset/train/0")) == 0:
+    if len(os.listdir(train_dir + "0")) == 0:
         print("Generating training images...")
         img_cnt = 0
         for idx, font_name in tqdm(enumerate(fonts)):
@@ -64,7 +67,7 @@ def train_datagen(
                                 )
                             )
                     except Exception as e:
-                        raise Exception('TrainImgGenError:', e)
+                        raise Exception("TrainImgGenError:", e)
 
     else:
         print("Directory is not empty: Not generating training images")
@@ -81,7 +84,7 @@ def test_datagen(
     digits_bns = "০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯".split()
     digits_ens = "0 1 2 3 4 5 6 7 8 9".split()
 
-    if len(os.listdir("dataset/test/0")) == 0:
+    if len(os.listdir(test_dir + "0")) == 0:
         print("Generating test images...")
         img_cnt = 0
         for idx, font_name in tqdm(enumerate(fonts)):
@@ -106,7 +109,7 @@ def test_datagen(
                                 )
                             )
                     except Exception as e:
-                        raise Exception('TestImgGenError:', e)
+                        raise Exception("TestImgGenError:", e)
 
     else:
         print("Directory is not empty: Not generating test images")

@@ -31,7 +31,7 @@ from digit_generation_utils.mixing_aug_image_with_gen_image import (
 
 
 # __main__
-def main_func():
+def main():
 
     directory_generator()
     fonts = check_fonts()
@@ -55,4 +55,5 @@ def main_func():
     # train_test_image_binarize(train_folder= 'train/', test_folder= 'test/')
 
 
-main_func()
+if __name__ == '__main__':
+    main()

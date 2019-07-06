@@ -1,6 +1,10 @@
 import os
 from glob import glob
 
+train_dir = "dataset/train/"
+test_dir = "dataset/test/"
+
+
 # making directories
 def directory_generator():
     # ensuring that the directories exist
@@ -10,8 +14,8 @@ def directory_generator():
             os.makedirs(directory)
 
     for i in range(10):
-        ensure_dir("dataset/train/" + str(i) + "/")
-        ensure_dir("dataset/test/" + str(i) + "/")
+        ensure_dir(train_dir + str(i) + "/")
+        ensure_dir(test_dir + str(i) + "/")
 
 
 # checking the fonts

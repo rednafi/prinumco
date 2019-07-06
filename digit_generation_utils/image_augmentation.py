@@ -70,7 +70,7 @@ class Filters(Operation):
 
     def perform_operation(self, images):
         def do(image):
-            if self.sizes == None:
+            if self.sizes is None:
                 size = self.size
             else:
                 size = random.choice(self.sizes)
