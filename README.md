@@ -6,9 +6,7 @@
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
-## Table of Contents
 - [PriNumco](#PriNumco)
-  - [Table of Contents](#Table-of-Contents)
   - [Dataset Summary](#Dataset-Summary)
   - [Sample Images](#Sample-Images)
     - [Original Images](#Original-Images)
