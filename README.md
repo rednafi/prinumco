@@ -6,6 +6,18 @@
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
+## Table of Contents
+- [PriNumco](#PriNumco)
+  - [Table of Contents](#Table-of-Contents)
+  - [Dataset Summary](#Dataset-Summary)
+  - [Sample Images](#Sample-Images)
+    - [Original Images](#Original-Images)
+    - [Augmented Images](#Augmented-Images)
+    - [List of Applied Augmentations](#List-of-Applied-Augmentations)
+  - [Requirements](#Requirements)
+  - [Script Arrangement & Order of Execution](#Script-Arrangement--Order-of-Execution)
+  - [Contributors](#Contributors)
+
 Several initiatives have been taken to label and aggregate Bengali handwritten digit images with the aim of constructing robust digit recognition systems. However, deeplearning models trained on handwritten digit data do not generalize well on images of printed digits. PriNumco is a Compilation of Printed Bengali Digit images which aims to provide an extremely robust training-validation dataset for building recognition systems that can classify images of printed digits, sourced from license plates, billboards, banners and other real-life data sources.
 
 ## Dataset Summary
@@ -69,7 +81,15 @@ In order to mimic real life images of Bengali digits, we generated the images wi
 -   **skew_left_right**(probability=0.02, magnitude=1)
 -   **skew_top_bottom**(probability=0.03, magnitude=1)
 -   **skew_corner**(probability=0.03, magnitude=1)
--   **skew**(probability=0.01, magnitude=1)
+-   **skew**(probability=0.01, magnitude=1)- [PriNumco](#PriNumco)
+  - [Dataset Summary](#Dataset-Summary)
+  - [Sample Images](#Sample-Images)
+    - [Original Images](#Original-Images)
+    - [Augmented Images](#Augmented-Images)
+    - [List of Applied Augmentations](#List-of-Applied-Augmentations)
+  - [Requirements](#Requirements)
+  - [Script Arrangement & Order of Execution](#Script-Arrangement--Order-of-Execution)
+  - [Contributors](#Contributors)
 -   **random_erasing**(probability=0.01, rectangle_area=0.11)
 -   **random_brightness**(probability=0.5, min_factor=0.5, max_factor=1.5)
 -   **random_color**(probability=0.2, min_factor=0, max_factor=1)
@@ -107,7 +127,7 @@ For further details on individual augmentation operation, please checkout the [d
         ├── digit_generation.py (Generating the actual digits)
         ├── image_augmentation.py (Augmenting the images)
         ├── mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
-    ├── main.py (Script containing the main function)
+    ├── digit_gen_main.py (Script containing the main function)
 
 To run the digit generation and augmentation pipeline,
 
@@ -124,10 +144,8 @@ To run the digit generation and augmentation pipeline,
 
     .
     cnn_model/
-    	├── train_tf1.12.py
-    	├── test_tf1.12.py
-    	├── train_tf2.0.py
-    	├── test_tf2.0.py
+    	├── train.py
+    	├── test.py
     	├── prinumco_mobilenet.h5
     	├── test.png
 
