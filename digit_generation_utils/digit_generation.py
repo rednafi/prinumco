@@ -1,9 +1,11 @@
-from PIL import Image, ImageFilter
+import os
+
+import numpy as np
+from PIL import Image
 from PIL import ImageDraw
+from PIL import ImageFilter
 from PIL import ImageFont
 from tqdm import tqdm
-import numpy as np
-import os
 
 train_dir = "dataset/train/"
 test_dir = "dataset/test/"
@@ -113,4 +115,3 @@ def test_datagen(
 
     else:
         print("Directory is not empty: Not generating test images")
-

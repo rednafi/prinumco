@@ -6,28 +6,23 @@ from glob import glob
 import Augmentor
 import numpy as np
 from Augmentor.Operations import Operation
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFilter
+from PIL import ImageFont
 from tqdm import tqdm
 
-from digit_generation_utils.digit_generation import (
-    digit_generator,
-    test_datagen,
-    train_datagen,
-)
+from digit_generation_utils.digit_generation import digit_generator
+from digit_generation_utils.digit_generation import test_datagen
+from digit_generation_utils.digit_generation import train_datagen
+from digit_generation_utils.directory_generation_check_font import check_fonts
+from digit_generation_utils.directory_generation_check_font import directory_generator
+from digit_generation_utils.image_augmentation import test_augmentation
+from digit_generation_utils.image_augmentation import train_augmentation
+from digit_generation_utils.mixing_aug_image_with_gen_image import copytree
+from digit_generation_utils.mixing_aug_image_with_gen_image import remove_output
 
 # function import
-from digit_generation_utils.directory_generation_check_font import (
-    check_fonts,
-    directory_generator,
-)
-from digit_generation_utils.image_augmentation import (
-    test_augmentation,
-    train_augmentation,
-)
-from digit_generation_utils.mixing_aug_image_with_gen_image import (
-    copytree,
-    remove_output,
-)
 
 
 # __main__
@@ -55,5 +50,5 @@ def main():
     # train_test_image_binarize(train_folder= 'train/', test_folder= 'test/')
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

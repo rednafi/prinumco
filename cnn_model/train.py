@@ -1,25 +1,26 @@
+import os
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-
-import os
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
-from tensorflow.keras.models import Sequential, Model, load_model
-from tensorflow.keras.layers import (
-    Dense,
-    Conv2D,
-    Flatten,
-    MaxPooling2D,
-    GlobalAveragePooling2D,
-    GlobalMaxPooling2D,
-    Dropout,
-)
-
 from tensorflow.keras.applications import MobileNetV2
-from tensorflow.keras.optimizers import Adam, RMSprop, SGD
+from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import GlobalAveragePooling2D
+from tensorflow.keras.layers import GlobalMaxPooling2D
+from tensorflow.keras.layers import MaxPooling2D
+from tensorflow.keras.models import load_model
+from tensorflow.keras.models import Model
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import RMSprop
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tqdm import tqdm
 
 adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
 
@@ -72,4 +73,3 @@ model.fit_generator(
 
 # Saving the model
 model.save("prinumco_mobilenet.h5")
-

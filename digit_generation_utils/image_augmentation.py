@@ -1,10 +1,12 @@
-import Augmentor
-from Augmentor.Operations import Operation
-from PIL import Image, ImageFilter
-from PIL import ImageDraw
-from PIL import ImageFont
 import random
+
+import Augmentor
 import numpy as np
+from Augmentor.Operations import Operation
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFilter
+from PIL import ImageFont
 
 
 # Bluring
@@ -38,7 +40,7 @@ class Blur(Operation):
                     else ImageFilter.BoxBlur
                 )
             # Choose radius
-            if self.fixed_radius == None:
+            if self.fixed_radius is None:
                 assert len(self.radius) == 2
                 radius = np.random.uniform(low=self.radius[0], high=self.radius[1])
             else:

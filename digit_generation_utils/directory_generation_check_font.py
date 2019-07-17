@@ -20,9 +20,8 @@ def directory_generator():
 
 # checking the fonts
 def check_fonts():
-
     """
-    Make a directory named 'custom' in the '/usr/share/fonts/truetype' path and copy the bangla fonts there. 
+    Make a directory named 'custom' in the '/usr/share/fonts/truetype' path and copy the bangla fonts there.
     """
     path = "/usr/share/fonts/truetype/custom/"
     files = [f for f in glob(path + "**/*.ttf", recursive=True)]

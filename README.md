@@ -26,11 +26,11 @@ Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 2
 
 ### Original Images
 
-<img src="https://user-images.githubusercontent.com/30027932/55688081-62db0c80-5996-11e9-9b85-245ef2e50469.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688087-7a19fa00-5996-11e9-908f-49ab1879b223.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688089-89994300-5996-11e9-866e-4f31c3e1a8c0.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688092-9c137c80-5996-11e9-8400-033de289a7fb.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688104-c2d1b300-5996-11e9-9907-bf4263cd4db9.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688109-d250fc00-5996-11e9-999b-cdcaf01e3f4b.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688114-e0068180-5996-11e9-8fe5-b4011de41083.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688119-f8769c00-5996-11e9-915c-73558b0cb65a.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688127-07f5e500-5997-11e9-85f8-88b6e1136530.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688132-18a65b00-5997-11e9-946f-e4c611a859ef.jpg" width="18%"></img> 
+<img src="https://user-images.githubusercontent.com/30027932/55688081-62db0c80-5996-11e9-9b85-245ef2e50469.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688087-7a19fa00-5996-11e9-908f-49ab1879b223.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688089-89994300-5996-11e9-866e-4f31c3e1a8c0.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688092-9c137c80-5996-11e9-8400-033de289a7fb.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688104-c2d1b300-5996-11e9-9907-bf4263cd4db9.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688109-d250fc00-5996-11e9-999b-cdcaf01e3f4b.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688114-e0068180-5996-11e9-8fe5-b4011de41083.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688119-f8769c00-5996-11e9-915c-73558b0cb65a.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688127-07f5e500-5997-11e9-85f8-88b6e1136530.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688132-18a65b00-5997-11e9-946f-e4c611a859ef.jpg" width="18%"></img>
 
 ### Augmented Images
 
-<img src="https://user-images.githubusercontent.com/30027932/55688245-5e175800-5998-11e9-84d8-407fa6c98ea4.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688250-6a9bb080-5998-11e9-8a2c-7ff60e8f3e93.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688259-78e9cc80-5998-11e9-8eba-687f011ba9cd.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688269-8acb6f80-5998-11e9-870c-e2abb153fcb8.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688279-9cad1280-5998-11e9-84bd-aeffa354f675.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688287-acc4f200-5998-11e9-836a-c12fc34b0db1.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688293-bd756800-5998-11e9-8672-27c41a5afb4f.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688305-d847dc80-5998-11e9-8e98-c509730c8f25.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688355-69b74e80-5999-11e9-8c7c-ee9b95a83580.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688383-b4d16180-5999-11e9-836a-724c300d26d4.jpg" width="18%"></img> 
+<img src="https://user-images.githubusercontent.com/30027932/55688245-5e175800-5998-11e9-84d8-407fa6c98ea4.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688250-6a9bb080-5998-11e9-8a2c-7ff60e8f3e93.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688259-78e9cc80-5998-11e9-8eba-687f011ba9cd.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688269-8acb6f80-5998-11e9-870c-e2abb153fcb8.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688279-9cad1280-5998-11e9-84bd-aeffa354f675.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688287-acc4f200-5998-11e9-836a-c12fc34b0db1.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688293-bd756800-5998-11e9-8672-27c41a5afb4f.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688305-d847dc80-5998-11e9-8e98-c509730c8f25.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688355-69b74e80-5999-11e9-8c7c-ee9b95a83580.jpg" width="18%"></img> <img src="https://user-images.githubusercontent.com/30027932/55688383-b4d16180-5999-11e9-836a-724c300d26d4.jpg" width="18%"></img>
 
 Generated images are organized in the following hierarchy:
 
@@ -61,7 +61,7 @@ Generated images are organized in the following hierarchy:
                 ├──img1.jpg
                 ...........
             ├── 2/
-                .....     
+                .....
 
 ### List of Applied Augmentations
 
@@ -121,10 +121,10 @@ For further details on individual augmentation operation, please checkout the [d
 
 To run the digit generation and augmentation pipeline,
 
--   Make a folder name `custom` in the path `/usr/share/fonts/truetype` 
+-   Make a folder name `custom` in the path `/usr/share/fonts/truetype`
 -   Copy the fonts from the `bfonts` folder to `/usr/share/fonts/truetype/custom` path
--   Run the `digit_gen_main.py` file to generate, augment and prepare and the images in their corresponding folders. 
-         
+-   Run the `digit_gen_main.py` file to generate, augment and prepare and the images in their corresponding folders.
+
 
 **Training and Validating a Baseline CNN model**
 
@@ -141,7 +141,7 @@ To run the digit generation and augmentation pipeline,
 
 We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to provide a baseline CNN model for benchmarking purposes. However, we also provided necessary scripts for training and testing the model in tensorflow 1.12.
 
--   Put the dataset folder in the primary folder (In case you haven't generated the images yourself) 
+-   Put the dataset folder in the primary folder (In case you haven't generated the images yourself)
 -   If you have tensorflow 2.0 installed, run the `train.py` file to train the baseline model
 -   For testing out the model (tf 2.0), run the `test.py` file (This will load our pretrained model to predict the class of a sample `test.png` image)
 
