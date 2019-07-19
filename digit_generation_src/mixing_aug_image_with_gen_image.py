@@ -3,9 +3,8 @@ import shutil
 
 from tqdm import tqdm
 
-# moving the augmented images to the corresponding folders
 
-
+# Moving the augmented images to the corresponding folders
 def copytree(source_path, destination_path, symlinks=False, ignore=None):
 
     print("Moving augmented images to the corresponding folders...")
@@ -27,7 +26,7 @@ def copytree(source_path, destination_path, symlinks=False, ignore=None):
                 shutil.copy2(source, destination)
 
 
-# removing the original augmented folder
+# Removing the original augmented folder
 def remove_output(output_folder_path):
 
     print("Removing redundant folders...")

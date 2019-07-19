@@ -1,8 +1,8 @@
 import os
 from glob import glob
 
-train_dir = "dataset/train/"
-test_dir = "dataset/test/"
+train_dir = "./dataset/train/"
+test_dir = "./dataset/test/"
 
 
 # making directories

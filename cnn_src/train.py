@@ -22,17 +22,21 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tqdm import tqdm
 
-adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
 
+# pointing the train and test directory
 base_dir = "./"
 train_folder = base_dir + "dataset/train/"
 test_folder = base_dir + "dataset/test/"
 
-# keras model
+# defining the optimizer
+adam = Adam(lr=3e-4, beta_1=0.9, beta_2=0.999)
+
+# Keras model
 input_shape = (96, 96, 3)
 num_classes = 10
 
-# defining the model
+
+# Defining the model
 base_model = MobileNetV2(
     include_top=False, input_shape=input_shape, classes=num_classes
 )
@@ -65,7 +69,7 @@ validation_generator = test_datagen.flow_from_directory(
 model.fit_generator(
     train_generator,
     steps_per_epoch=3300,
-    epochs=50,
+    epochs=2,
     validation_data=validation_generator,
     validation_steps=500,
 )
