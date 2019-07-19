@@ -99,8 +99,7 @@ For further details on individual augmentation operation, please checkout the [d
 
 **Running the CNN model**
 
--   tensorflow 1.12/2.0 alpha
--   keras 2.2.4 (Only applicable for tensorflow 1.12)
+-   tensorflow 2.0.0-beta1
 
 ## Script Arrangement & Order of Execution
 

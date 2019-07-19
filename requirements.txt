@@ -1,4 +1,4 @@
-Augmentor==0.2.3
+Augmentor==0.2.6
 cloudpickle==1.2.0
 cycler==0.10.0
 dask==1.2.2
