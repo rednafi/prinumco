@@ -20,7 +20,7 @@ Several initiatives have been taken to label and aggregate Bengali handwritten d
 
 ## Dataset Summary
 
-Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 256) images of 10 digits (232 images per digit) and propels them through an augmentation pipeline to generate 200k train images. A similar procedure with different augmentation pipeline was followed to generate 30k test images.
+Initially, the script uses 58 different Bengali fonts to generate 2320  (256 x 256) images of 10 digits (232 images per digit) and propels them through an augmentation pipeline to generate 200k train images. A similar procedure with different augmentation pipeline was followed to generate 28k test images.
 
 ## Sample Images
 
