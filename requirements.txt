@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 Augmentor==0.2.6
-cloudpickle==1.2.0
-=======
-Augmentor==0.2.3
 cloudpickle==1.2.1
->>>>>>> 00137b35cdaa449056f7a20cb69627e940521e3f
 cycler==0.10.0
 dask==2.0.0
 decorator==4.4.0
