@@ -111,12 +111,12 @@ For further details on individual augmentation operation, please checkout the [d
 
     .
     ├── bfonts/
-    ├── digit_generation_utils/
-        ├── directory_generation_check_font.py (Making necessary directories to contain the dataset)
-        ├── digit_generation.py (Generating the actual digits)
-        ├── image_augmentation.py (Augmenting the images)
-        ├── mixing_aug_image_with_gen_image.py (Mixing the augmented images with the generated images)
-    ├── digit_gen_main.py (Script containing the main function)
+    ├── digit_generation_src/
+        ├── directory_generation_check_font.py [Making necessary directories to contain the dataset]
+        ├── digit_generation.py [Generating the actual digits]
+        ├── image_augmentation.py [Augmenting the images]
+        ├── mixing_aug_image_with_gen_image.py [Mixing the augmented images with the generated images]
+        ├── digit_gen_main.py [Script containing the main function]
 
 To run the digit generation and augmentation pipeline,
 
@@ -132,7 +132,7 @@ To run the digit generation and augmentation pipeline,
     ------------------------------------------------------------------------------------------------------
 
     .
-    cnn_model/
+    cnn_src/
     	├── train.py
     	├── test.py
     	├── prinumco_mobilenet.h5
