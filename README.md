@@ -91,15 +91,15 @@ For further details on individual augmentation operation, please checkout the [d
 
 ## Requirements
 
--   Ubunutu 18.04 Bionic Beaver
-
-**Image Generation**
-
-    pip install -r requirements.txt
-
-**Running the CNN model**
-
--   tensorflow 2.0.0-beta1
+- Ubunutu >= 18.04 Bionic Beaver
+- Install requirements via:
+  ```
+  pip install -r requirements.txt
+  ```
+- Make sure you have CUDA 10.1 and compatible CuDNN installed. To install tensorflow 2.0, run:
+  ```
+  pip install tensorflow-gpu==2.0.0-rc0
+  ```
 
 ## Script Arrangement & Order of Execution
 
@@ -129,6 +129,9 @@ To run the digit generation and augmentation pipeline,
     sudo cp -r ./bfonts/.  /usr/share/fonts/truetype/custom
     ```
 -   Run the `digit_gen_main.py` file to generate, augment and prepare and the images in their corresponding folders.
+    ```
+    python digit_gen_main.py
+    ```
 
 
 **Training and Validating a Baseline CNN model**
@@ -142,9 +145,9 @@ To run the digit generation and augmentation pipeline,
     	├── train.py
     	├── test.py
     	├── test.png
-    model/
+    ├── model/
     	├── prinumco_mobilenet.h5
-    results/
+    ├──results/
     	├── acc.png
         ├── loss.py
         ├── test.png
@@ -153,8 +156,8 @@ To run the digit generation and augmentation pipeline,
 We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to provide a baseline CNN model for benchmarking purposes.
 
 -   Put the dataset folder in the root folder (In case you haven't generated the images yourself)
--   If you have tensorflow 2.0 installed, run the `train.py` file to train the baseline model
--   For testing out the model (tf 2.0), run the `test.py` file (This will load our pretrained model to predict the class of a sample `test.png` image)
+-   Run the `train.py` file to train the baseline model
+-   For testing out the model, run the `test.py` file (This will load our pretrained model to predict the class of a sample `test.png` image)
 
 
 ## Contributors
