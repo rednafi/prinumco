@@ -148,7 +148,7 @@ To run the digit generation and augmentation pipeline,
     ├── model/
     	├── prinumco_mobilenet.h5
     ├──results/
-    	├── acc.png
+        ├── acc.png
         ├── loss.py
         ├── test.png
         
