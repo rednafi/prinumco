@@ -148,9 +148,9 @@ To run the digit generation and augmentation pipeline,
     ├── model/
     	├── prinumco_mobilenet.h5
     ├──results/
-        ├── acc.png
-        ├── loss.py
-        ├── test.png
+            ├── acc.png
+            ├── loss.py
+            ├── test.png
         
 
 We used tensorflow 2.0's keras API to construct and train [mobilenetV2](https://arxiv.org/abs/1801.04381) architecture to provide a baseline CNN model for benchmarking purposes.
