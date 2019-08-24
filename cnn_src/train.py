@@ -82,7 +82,7 @@ plt.ylabel("accuracy")
 plt.xlabel("epoch")
 plt.legend(["train", "test"], loc="upper left")
 plt.show()
-plt.savefig("../result/acc.png", dpi=500)
+plt.savefig("./results/acc.png", dpi=500)
 
 # summarize history for loss
 plt.plot(history.history["loss"])
@@ -92,7 +92,7 @@ plt.ylabel("loss")
 plt.xlabel("epoch")
 plt.legend(["train", "test"], loc="upper left")
 plt.show()
-plt.savefig("../results/acc.png")
+plt.savefig("./results/acc.png")
 
 # Saving the model
-model.save("prinumco_mobilenet.h5")
+model.save("./model/prinumco_mobilenet.h5")

@@ -24,7 +24,7 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tqdm import tqdm
 
-model = load_model("prinumco_mobilenet.h5")
+model = load_model("./model/prinumco_mobilenet.h5")
 
 
 def load(filename):
@@ -36,7 +36,7 @@ def load(filename):
     return np_image
 
 
-url = "test.png"
+url = "./results/test.png"
 image = load(url)
 
 predict_matrix = model.predict(image)
