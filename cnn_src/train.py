@@ -66,7 +66,7 @@ validation_generator = test_datagen.flow_from_directory(
     test_folder, target_size=(96, 96), batch_size=64, class_mode="categorical"
 )
 
-model.fit_generator(
+history = model.fit_generator(
     train_generator,
     steps_per_epoch=3300,
     epochs=2,
@@ -74,6 +74,25 @@ model.fit_generator(
     validation_steps=500,
 )
 
+# summarize history for accuracy
+plt.plot(history.history["acc"])
+plt.plot(history.history["val_acc"])
+plt.title("model accuracy")
+plt.ylabel("accuracy")
+plt.xlabel("epoch")
+plt.legend(["train", "test"], loc="upper left")
+plt.show()
+plt.savefig("../result/acc.png", dpi=500)
+
+# summarize history for loss
+plt.plot(history.history["loss"])
+plt.plot(history.history["val_loss"])
+plt.title("model loss")
+plt.ylabel("loss")
+plt.xlabel("epoch")
+plt.legend(["train", "test"], loc="upper left")
+plt.show()
+plt.savefig("../results/acc.png")
 
 # Saving the model
 model.save("prinumco_mobilenet.h5")
