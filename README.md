@@ -1,10 +1,14 @@
+<div align="center">
 # PriNumco
+Algorithmically generating Bengali digits and classification using MobileNetV2 for Bangladeshi license plate detection
 
 [![Dataset](https://img.shields.io/badge/Dataset-Prinumco-red.svg)](https://drive.google.com/file/d/1ICR4I5Rmtst8eGFqQFudhnG4YSEIWozq/view?usp=sharing)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+
+</div>
 
 - [PriNumco](#PriNumco)
   - [Dataset Summary](#Dataset-Summary)
