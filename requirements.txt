@@ -3,7 +3,7 @@ cloudpickle==1.2.1
 cycler==0.10.0
 dask==2.3.0
 decorator==4.4.0
-future==0.17.1
+future==0.18.1
 kiwisolver==1.1.0
 matplotlib==3.1.1
 networkx==2.3
