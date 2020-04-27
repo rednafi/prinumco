@@ -1,5 +1,5 @@
 Augmentor==0.2.6
-cloudpickle==1.2.1
+cloudpickle==1.4.0
 cycler==0.10.0
 dask==2.3.0
 decorator==4.4.0
