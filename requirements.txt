@@ -1,7 +1,7 @@
 Augmentor==0.2.6
 cloudpickle==1.2.1
 cycler==0.10.0
-dask==2.3.0
+dask==2.19.0
 decorator==4.4.0
 future==0.17.1
 kiwisolver==1.1.0
