@@ -1,0 +1,30 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: decorator
+    versions:
+    - 4.4.2
+    - 5.0.3
+    - 5.0.5
+    - 5.0.6
+  - dependency-name: dask
+    versions:
+    - 2021.1.1
+    - 2021.2.0
+    - 2021.3.0
+    - 2021.3.1
+    - 2021.4.0
+  - dependency-name: scipy
+    versions:
+    - 1.6.0
+    - 1.6.1
+    - 1.6.2
+  - dependency-name: networkx
+    versions:
+    - "2.5"
